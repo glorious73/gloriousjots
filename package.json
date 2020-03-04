@@ -20,7 +20,7 @@
     "graceful-fs": "^4.1.15",
     "handlebars": "^4.0.12",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.0",
+    "mongoose": "^5.7.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },
