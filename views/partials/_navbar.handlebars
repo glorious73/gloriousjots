@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+  <div class="container">
+    <a class="navbar-brand" href="#">GloriousJots</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          {{#if homeActive}}
+            <a class="nav-link active" id="home" href="/">Home</a>
+          {{else}}
+            <a class="nav-link" id="home" href="/">Home</a>
+          {{/if}}
+        </li>
+        <li class="nav-item">
+          {{#if aboutActive}}
+            <a class="nav-link active" id="about" href="/about">About</a>
+          {{else}}
+            <a class="nav-link" id="about" href="/about">About</a>
+          {{/if}}
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <!--Show menu if there is a user, or login and register otherwise-->
+        {{#if user}}
+          <li class="nav-item dropdown">
+            {{#if ideasActive}}
+              <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown" id="navbarDropdownMenuLink">Ideas</a>
+            {{else}}
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Ideas</a>
+            {{/if}}
+            <div class="dropdown-menu">
+              <a href="/ideas" class="dropdown-item">Ideas List</a>
+              <a href="/ideas/add" class="dropdown-item">Add Idea</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="/users/logout" class="nav-link" id="logout">Logout</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            {{#if loginActive}}
+              <a href="/users/login" class="nav-link active" id="login">Login</a>
+            {{else}}
+              <a href="/users/login" class="nav-link" id="login">Login</a>
+            {{/if}}
+          </li>
+          <li class="nav-item">
+            {{#if registerActive}}
+              <a href="/users/register" class="nav-link active" id="register">Register</a>
+            {{else}}
+              <a href="/users/register" class="nav-link" id="register">Register</a>
+            {{/if}}
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>

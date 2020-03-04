@@ -1,0 +1,17 @@
+<!-- This file is for the edit form body-->
+<div class="card card-body">
+  <h3>Edit Idea</h3>
+  <!--hidden input and -method are used with 'method-override module to change the type of request to server'-->
+  <form class="" action="/ideas/{{idea.id}}?_method=PUT" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="ideaTitle" name="title" value="{{idea.title}}" required>
+    </div>
+    <div class="form-group">
+      <label for="details">Details</label>
+      <textarea id="ideaDetails" name="details" class="form-control" required>{{idea.details}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-dark" name="button">Submit</button>
+  </form>
+</div>

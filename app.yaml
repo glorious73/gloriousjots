@@ -1,0 +1,6 @@
+# This file is for deployment on Google Cloud
+# It was done by following Google's Documentation
+# https://www.youtube.com/watch?v=fAUT1-MuxKc
+
+# -------------- Code --------------
+runtime: nodejs10
