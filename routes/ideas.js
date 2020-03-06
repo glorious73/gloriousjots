@@ -72,7 +72,7 @@ router.post('/', ensureAuthenticated, function(request, response) {
       user: request.user.id
     }; // newUser object contains attributes for the idea to be saved in db.
     new Idea(newUser).save().then(function(idea) {
-      request.flash('success_msg', 'Idea added');
+      request.flash('success_msg', 'Note added');
       response.redirect('/ideas'); // after adding, redirect to ideas page (handle in app.get('/ideas')).
     });
   }
@@ -89,8 +89,8 @@ router.put('/:id', ensureAuthenticated, function(request, response) {
     idea.details = request.body.details;
     // save the MongoDB object with the new MongoDB object values (returns a Promise)
     idea.save().then(idea => {
-      request.flash('success_msg', 'Idea edited');
-      response.redirect('/ideas') // MIGHT CHANGE
+      request.flash('success_msg', 'Note edited');
+      response.redirect('/ideas');
     });
   });
 });
@@ -98,8 +98,8 @@ router.put('/:id', ensureAuthenticated, function(request, response) {
 // Delete ideas request
 router.delete('/:id', ensureAuthenticated, function(request, response) {
     Idea.remove({_id: request.params.id}).then(() => {
-      request.flash('success_msg', 'Idea removed');
-      response.redirect('/ideas');
+      request.flash('success_msg', 'Note removed');
+      response.send(200, { success: true, message: 'Note delete successfully.' });
   });
 });
 
