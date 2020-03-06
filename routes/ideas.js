@@ -60,7 +60,7 @@ router.post('/', ensureAuthenticated, function(request, response) {
     response.render("ideas/add", {
       errors: errors,
       title: request.body.title,
-      details: request.body.deatils,
+      details: request.body.details,
       ideasActive: true
     });
   }
@@ -70,7 +70,7 @@ router.post('/', ensureAuthenticated, function(request, response) {
       title: request.body.title,
       details: request.body.details,
       user: request.user.id
-    } // newUser object contains attributes for the idea to be saved in db.
+    }; // newUser object contains attributes for the idea to be saved in db.
     new Idea(newUser).save().then(function(idea) {
       request.flash('success_msg', 'Idea added');
       response.redirect('/ideas'); // after adding, redirect to ideas page (handle in app.get('/ideas')).

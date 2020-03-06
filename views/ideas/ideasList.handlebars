@@ -6,11 +6,39 @@
          <!--Edit idea-->
          <a class="btn btn-block btn-dark mb-2" href="/ideas/edit/{{id}}"> Edit </a>
          <!--Delete idea-->
-         <form class="" action="/ideas/{{id}}?_method=DELETE" method="post">
-             <input type="hidden" name="_method" value="DELETE">
-             <input type="submit" class="btn btn-block btn-danger" value="Delete"></input>
-         </form>
+         <a href="#deleteModal" class="btn btn-block btn-danger" data-toggle="modal" data-id="{{id}}">
+          DELETE
+        </a>
   </div>
 {{else}}
-  <h6 class="mt-4">No ideas listed. <a class="card-link" href="/ideas/add">Click here to add an idea</a>.</h6>
+  <h6 class="mt-4">No notes listed. <a class="card-link" href="/ideas/add">Click here to add a note</a>.</h6>
 {{/each}}
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Note</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer d-flex flex-row">
+        <div class="flex-grow-1 text-center">
+          <button type="button" class="btn btn-danger" id="deleteButton">
+            Delete
+          </button>
+        </div>
+        {{!-- <form class="flex-grow-1 text-center" action="" id="deleteForm" method="delete">
+             <input type="hidden" name="_method" value="DELETE">
+             <input type="submit" class="btn btn-danger" value="Delete"></input>
+        </form> --}}
+        <div class="flex-grow-1 text-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

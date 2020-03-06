@@ -98,7 +98,7 @@ app.use('/ideas', ideasRoute);
 app.use('/users', usersRoute);
 /* ------------------------------------------------------------------------------- */
 // Set up listen for server (works for deployment as well)
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log(`Server started on port ${port}`);
 });
