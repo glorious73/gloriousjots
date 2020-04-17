@@ -1,2 +1,2 @@
 # gloriousjots
-A note-taking web application built with Express.js.
+A note-taking web application built with Express JS & Handlebars.
