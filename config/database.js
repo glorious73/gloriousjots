@@ -1,2 +1,2 @@
 /*----- This file is to check whether it's local host or production to choose the correct DB -----*/
-module.exports = {mongoUri: 'mongodb://gloriousteam:glorious73@ds141654.mlab.com:41654/gloriousdb'}
+module.exports = {mongoUri: 'mongodb+srv://glorious73:ghallahdb@gloriousjotscluster.ej7th.mongodb.net/ghallahdb?retryWrites=true&w=majority'};
