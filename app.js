@@ -1,6 +1,7 @@
 /*----- This is the main JavaScript file for the app (app.js) -----*/
 // Bring in modules
 const express        = require('express');
+const Handlebars     = require('handlebars');
 const exphbs         = require('express-handlebars');
 const path           = require('path');
 const mongoose       = require('mongoose');
@@ -9,6 +10,7 @@ const flash          = require('connect-flash');
 const session        = require('express-session');
 const methodOverride = require('method-override');
 const passport       = require('passport');
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 
 const app = express(); // initialize the 'express' application
 
@@ -38,7 +40,10 @@ mongoose.connect(mongodbConnectionString.mongoUri, {
  });
 
 /* handlebars middleware*/
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main', 
+  handlebars: allowInsecurePrototypeAccess(Handlebars)
+}));
 app.set('view engine', 'handlebars');
 
 /* Body parser middleware (we need it to access/process whatever was submitted to server)*/
